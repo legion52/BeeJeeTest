@@ -1,0 +1,25 @@
+.item{
+  display: flex;
+  justify-content:space-between;
+}
+.cardButton{
+  border-radius: 50px;
+  margin: 5px;
+  /* background-color: rgb(87, 207, 234); */
+}
+.success{
+  background-color: aquamarine;
+
+}
+
+.edit{
+  font-size: 15px;
+  color: rgb(158, 166, 173);
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+}

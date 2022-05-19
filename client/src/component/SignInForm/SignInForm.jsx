@@ -31,7 +31,7 @@ export default function SignInForm() {
     }
   }
   return (
-    <div>SignInForm
+    <div>
       <form onSubmit={submitHandler} novalidate>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">Username</label>

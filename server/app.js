@@ -19,7 +19,7 @@ app.use(morgan('dev'));
 
 app.use(cors({
   credentials: true,
-  origin: 'http://5.63.152.142:3001',
+  origin: 'http://5.63.152.142:3000',
 }));
 
 app.use(

@@ -32,12 +32,13 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.wrapper{
+.wrapper {
   display: flex;
   justify-content: center;
 }

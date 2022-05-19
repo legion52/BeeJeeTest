@@ -31,7 +31,7 @@ export default function TodoItem({ todo }) {
             <hr />
             <p>{todo.title}</p>
             {todo.changed && <div className={`${style.edit}`}>
-              <p>изменено администратором*</p>
+              <p>отредактировано администратором*</p>
             </div>}
             {user && (<div>
               <hr />

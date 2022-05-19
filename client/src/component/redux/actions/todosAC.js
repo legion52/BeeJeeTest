@@ -19,12 +19,11 @@ export const getTodoFromServer = () => async (dispatch) => {
 
 export const editTodo = (todo) => async (dispatch) => {
   await axios.put(`/api/v1/todo/edit`, todo)
-  dispatch({ type: EDIT_TODO, payload: { ...todo, changed: true } })
+  dispatch({ type: EDIT_TODO, payload: todo })
 
 }
 
 export const changeStatus = (id, todoStatus) => async (dispatch) => {
-  console.log(id);
-  await axios.post(`/api/v1/todo/changeStatus/${id}`, { status: todoStatus })
   dispatch({ type: CHANGE_STATUS, payload: { id, status: todoStatus } })
+  await axios.post(`/api/v1/todo/changeStatus/${id}`, { status: todoStatus })
 }

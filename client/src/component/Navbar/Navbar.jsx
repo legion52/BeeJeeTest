@@ -1,4 +1,3 @@
-// import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import { userLogout } from '../redux/actions/userAC';
@@ -20,7 +19,7 @@ export default function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-          <Link className="nav-link active" aria-current="page" to="/addTodo">Добавить задачу</Link>
+            <Link className="nav-link active" aria-current="page" to="/addTodo">Добавить задачу</Link>
             {!user ?
               <><li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/signin">Войти</Link></li></> : <li className="nav-item"><button className="btn btn-light" onClick={() => dispatch(userLogout())} aria-current="page" >Выйти</button></li>}

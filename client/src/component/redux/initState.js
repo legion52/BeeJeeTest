@@ -1,4 +1,4 @@
 export const initState = {
-  user:null,
-  todos:[],
+  user: null,
+  todos: [],
 }

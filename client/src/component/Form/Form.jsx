@@ -6,32 +6,35 @@ import style from './style.module.css'
 
 
 export default function Form({ isEdit, setIsedit, todo = {} }) {
-  const [input, setInput] = useState({ name: '', email: '', title: '' })
+  const [input, setInput] = useState(Object.keys(todo).length ? todo : { name: '', email: '', title: '' })
+  const [message, setMessage] = useState(false)
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
   useEffect(() => {
-    if (Object.keys(todo).length) {
-      setInput(todo)
+    if (isEdit) {
+
     }
-
-
-  }, [])
+  }, [input])
 
   const inputChange = (e) => {
-    setInput(prev => ({ ...prev, [e.target.name]: e.target.value }))
+    setInput(prev => ({ ...prev, [e.target.name]: e.target.value, }))
   }
   const hadleSubmit = (e) => {
     e.preventDefault()
     if (isEdit) {
-      setInput(prev => ({ ...prev, id: todo.id }))
-      console.log(input);
-      dispatch(editTodo(input))
+      let inputChange = {}
+      if (input.title !== todo.title) {
+        inputChange = { changed: true }
+      }
+      dispatch(editTodo({ ...input, ...inputChange }))
       setIsedit(false)
     } else {
-      console.log(input);
       dispatch(addTodo(input))
-      navigate('/')
+      setMessage(true)
+      setTimeout(() => {
+        navigate('/')
+      }, 500)
     }
   }
 
@@ -51,7 +54,6 @@ export default function Form({ isEdit, setIsedit, todo = {} }) {
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
           <input name='email' type="email" value={input.email} onChange={inputChange} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
-          <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div className="mb-3">
           <label htmlFor="title" className="form-label">Title</label>
@@ -59,8 +61,11 @@ export default function Form({ isEdit, setIsedit, todo = {} }) {
           <div className="valid-feedback">
             Looks good!
           </div>
+
+          {message &&
+            <div className={style.message}><p>Задача добавлена!</p></div>}
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary">Сохранить</button>
       </form>
     </div>
   )

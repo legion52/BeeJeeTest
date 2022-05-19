@@ -1,5 +1,7 @@
 .form{
   margin-top: 30px;
   width: 600px;
-
+}
+.message{
+  color: green;
 }

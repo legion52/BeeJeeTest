@@ -20,7 +20,6 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-
       <div className='wrapper'>
         <Routes>
           <Route path='/' element={<Main />} />

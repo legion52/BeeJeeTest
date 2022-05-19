@@ -27,7 +27,9 @@ export default function SignInForm() {
       navigate('/')
     }
     else {
+      setTimout(() => {
       setHasError(true)
+      }, 1000)
     }
   }
   return (
